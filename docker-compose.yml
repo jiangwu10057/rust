@@ -1,0 +1,16 @@
+version: '3.7'
+networks:
+  component_net:
+    driver: bridge
+    external: true
+services:
+  rust:
+    build: .
+    image: rust
+    container_name: rust
+    restart: always
+    tty: true
+    networks:
+      - component_net
+    volumes:
+      - .:/usr/src
